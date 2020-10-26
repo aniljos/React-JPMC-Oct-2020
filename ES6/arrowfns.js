@@ -21,7 +21,7 @@ const add = function(x, y){
 }
 
 //Arrow function
-
+// No implicit args ==> this, arguments
 let calc = (x, y)=>{
     return x + y;
 }
@@ -33,6 +33,33 @@ console.log(calc(2,3));
 const squareIt = x => x * x;
 console.log(squareIt(9));
 
-const log = (msg) => console.log("logging", msg);
-log("abc");
+
+//var id = 300;
+var obj = {
+    id: 100,
+    print: function(){
+       //var id = 25;
+        const _this = this;
+        console.log("Id: ", this.id);
+
+        // internal   ==> (this, argumuments)
+        setTimeout(function(){
+            console.log("Id after 2secs: ", _this.id);
+        }, 2000);
+
+        // internal   ==> ()
+        setTimeout(() => {
+            console.log("Id after 2sec(AF): ", this.id);
+        }, 2000)
+    }
+}
+
+obj.print();
+
+
+setTimeout(() => {
+    console.log("Id after 2sec(AF): ", this.id);
+}, 2000)
+
+
 
