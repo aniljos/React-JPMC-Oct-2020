@@ -17,6 +17,9 @@ function AppHeader() {
                     <li className="nav-item">
                         <Link className="nav-link active" to="/products">Products</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link active" to="/search">Search</Link>
+                    </li>
                 </ul>
             </nav>
         </div>

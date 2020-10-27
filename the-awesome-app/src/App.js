@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import AppHeader from './components/AppHeader';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ListProducts from './components/ListProducts';
+import WikiSearch from './components/WikiSearch';
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
 
                 <Route path="/" exact render={() => <Hello message="This is a simple functional component"/>}/>
                 <Route path="/counter" render={() => <Counter message="This is a simple class component"/>}/> 
-                <Route path="/products" component={ListProducts}/>     
+                <Route path="/products" component={ListProducts}/>  
+                <Route path="/search" component={WikiSearch}/>     
             </div>
         </div>
       </div>
