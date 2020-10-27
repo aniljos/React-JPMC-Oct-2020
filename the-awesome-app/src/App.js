@@ -1,34 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
 import Hello from './components/Hello';
 import Counter from './components/Counter';
+import 'bootstrap/dist/css/bootstrap.css'
+import AppHeader from './components/AppHeader';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         Project for Training.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <section>
-          {/* <Hello message="This is a simple component"/>
-          <Hello message="The functional component"/> */}
 
-          <Counter message="A sample counter"/>
-          <Counter message="Another counter"/>
-          
-      </section>
-    </div>
+    <Router>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12">
+            <AppHeader />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-12 jumbotron">
+            <h2>React Training Application</h2>
+          </div>
+        </div>
+        <div className="row">
+            <div className="col-sm-12">
+                {/* <Route path="/" exact component={Hello}/>
+                <Route path="/counter" component={Counter}/> */}
+
+                <Route path="/" exact render={() => <Hello message="This is a simple functional component"/>}/>
+                <Route path="/counter" render={() => <Counter message="This is a simple class component"/>}/>      
+            </div>
+        </div>
+      </div>
+    </Router>
   );
 }
 

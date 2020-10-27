@@ -6,19 +6,30 @@ import React, { Component } from 'react';
 //class-based component
 class Counter extends Component{
 
+
+    //ES7
     //immutable
     state = {
         count: 5
     };
+    inputRef = null;
+    otherRef = null;
+    
 
     constructor(props){
         super(props);
+
+        //Till ES7
+        // this.state = {
+        //     count = 5
+        // }
 
         //Till ES7
         this.increment = this.increment.bind(this);
     }
 
     increment(evt){
+        
         console.log("increment ", evt);
        // this.state.count++;
 
@@ -31,6 +42,8 @@ class Counter extends Component{
 
     //ES7
     decrement = (evt) => {
+
+        //evt.persist();
 
         console.log("decrement ", evt);
        // this.state.count--;
@@ -48,7 +61,12 @@ class Counter extends Component{
             count: parseInt(value)
         });
     }
+    update = (evt) => {
 
+        this.setState({
+            count: parseInt(this.inputRef.value)
+        });
+    }
     render(){
         //return the View(JSX)
         return (
@@ -60,7 +78,14 @@ class Counter extends Component{
                     <button onClick={this.decrement}>Decr</button>
                 </div>
                 <div>
+                    {/* Controlled Input */}
                     Counter: <input type="number" value={this.state.count} onChange={this.change}/>
+                </div>
+                <div>
+                    {/* Uncontrolled Input */}
+                    Update : <input type="number" 
+                            ref={(ref) => {this.inputRef = ref}}/> &nbsp; <button onClick={this.update}>Update</button>
+                        <input ref={(r) => {this.otherRef = r}}/>
                 </div>
             </div>
         )
