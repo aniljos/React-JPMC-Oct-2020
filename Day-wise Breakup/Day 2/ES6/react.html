@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
+</head>
+<body>
+    <h2>React Application</h2>
+    <div id="app1"></div>
+    <div id="app2"></div>
+    <div id="app3"></div>
+    <div id="app4"></div>
+
+    <script type="text/babel">
+
+        //create a custom HTML element(React)
+        // <div id="test">This is a React Element</div>
+        const element 
+            = React.createElement("div", 
+                    null, "This is a React Element");
+        ReactDOM.render(element, 
+                    document.getElementById("app1"));
+        
+        const element1
+            = React.createElement("div", 
+                    null, React.createElement("p", null, "This is a React Inner Element"));
+        ReactDOM.render(element1, 
+                    document.getElementById("app2"));
+
+        
+        //JSX
+        ReactDOM.render(<div><p>This is React JSX</p></div>, document.getElementById("app3"));
+
+
+        //Component => Custom HTML element designed to be reuseable
+        function MyComponent(){
+
+            //return JSX
+            return (
+                <h4>Hello React Component</h4>
+            )
+        }
+        ReactDOM.render(<MyComponent/>, document.getElementById("app4"));
+
+
+
+        
+
+    </script>
+</body>
+</html>
