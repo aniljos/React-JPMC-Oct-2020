@@ -2,6 +2,7 @@ import React, { Component, PureComponent } from 'react';
 import axios from 'axios';
 import './ListProducts.css';
 import ProductForm from './ProductForm';
+import { Link } from 'react-router-dom';
 
 
 class ListProducts extends PureComponent{
@@ -123,6 +124,9 @@ class ListProducts extends PureComponent{
         return (
             <div>
                 <h2>List Products</h2>
+                <p>
+                    <Link to="/addProduct">New Product</Link>
+                </p>
                 <div style={{display: 'flex', flexFlow: 'row wrap', justifyContent: 'center'}}>
                     {this.renderProducts()}
                 </div>

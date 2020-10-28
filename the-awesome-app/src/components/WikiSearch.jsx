@@ -14,7 +14,7 @@ function WikiSearch(){
         <div>
 
             <input className="form-control" type="search" value={searchKey} onChange={change}/>
-             &nbsp;
+            
             <button className="btn btn-success">Search</button>
 
             {searchKey? <p>Searching for {searchKey}</p> : null}

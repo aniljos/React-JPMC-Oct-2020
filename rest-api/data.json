@@ -17,6 +17,24 @@
       "name": "Samsung Galaxy Watch Active 2",
       "description": "With Super AMOLED Display",
       "price": 20300
+    },
+    {
+      "id": 6,
+      "name": "jgjhjg",
+      "desc": "jhgjhgj",
+      "price": 87876876
+    },
+    {
+      "id": 2,
+      "name": "jjkjkh",
+      "desc": "jhkjhk",
+      "price": 8787
+    },
+    {
+      "id": 4,
+      "name": "ggd",
+      "desc": "gfdgf",
+      "price": 757657
     }
   ]
 }
