@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ListProducts from './components/ListProducts';
 import WikiSearch from './components/WikiSearch';
 import AddProduct from './components/AddProduct';
+import WikiSearchExt from './components/WikiSearchExt';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/counter" render={() => <Counter message="This is a simple class component"/>}/> 
                 <Route path="/products" component={ListProducts}/>  
                 <Route path="/search" component={WikiSearch}/>  
+                <Route path="/searchext" component={WikiSearchExt}/>  
                 <Route path="/addProduct" component={AddProduct}/>     
             </div>
         </div>

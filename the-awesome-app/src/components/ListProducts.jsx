@@ -11,6 +11,7 @@ class ListProducts extends PureComponent{
         products: [],
         selectedProduct: null
     }
+    count = 0;
 
     constructor(props){
         super(props);
@@ -72,6 +73,8 @@ class ListProducts extends PureComponent{
     }
 
     editProduct = (item) => {
+        this.count++;
+        console.log("Count: ", this.count);
         this.setState({
             selectedProduct: item
         });

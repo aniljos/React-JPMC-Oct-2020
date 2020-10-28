@@ -3,12 +3,14 @@ import axios from 'axios';
 
 class AddProduct extends Component{
 
+    
+
     save = async () => {
 
         const product = {
             id: parseInt( this.idRef.value),
             name: this.nameRef.value,
-            desc: this.descRef.value,
+            description: this.descRef.value,
             price: parseFloat(this.priceRef.value),
         }
         const url = "http://localhost:9000/products";
@@ -33,7 +35,7 @@ class AddProduct extends Component{
                 <div>
                     <p>Id</p>
                     <div>
-                        <input type="number" ref={ref=> this.idRef=ref}/>
+                        <input type="number" ref={ref=> this.idRef=ref} />
                     </div>
                     <p>Name</p>
                     <div>

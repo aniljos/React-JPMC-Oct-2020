@@ -1,55 +1,23 @@
-import React, {useEffect, useState } from 'react';
+import React, {useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 
 
-
-function WikiSearch() {
+function WikiSearchExt() {
 
     //state called "searchKey" and a function to the update the state called "setSearchKey"
-    const [searchKey, setSearchKey] = useState(() => {
-
-        const value = window.localStorage.getItem("searchKey");
-        if(value){
-            return value;
-        }
-        else{
-            return "";
-        }
-    });
+    const [searchKey, setSearchKey] = useState("");
     const [results, setResults] = useState([]);
-
-    //useEffect(callback, [dependencies])
-    useEffect(() => {
-        console.log("useEffect like the componentDidMount(there are no dependencies)");
-
-        //return a callback(this callback acts the componentWillUnmount)
-        return ()=> {
-            console.log("useEffect callback(this callback acts the componentWillUnmount)");
-        }
-    }, []);
-
-    useEffect(() => {
-        console.log("useEffect like the componentDidUpdate(there is a dependencies to searchKey)");
-
-        window.localStorage.setItem("searchKey", searchKey);
-
-    }, [searchKey]);
-
-    useEffect(() => {
-        console.log("useEffect like the componentDidUpdate(there is a dependencies to results)");
-    }, [results]);
-
-    useEffect(() => {
-        console.log("useEffect like the componentDidUpdate(there is a dependencies to searchKey, results)");
-    }, [searchKey, results]);
-
-    
+    let count = useRef(0);
+   
     function change(evt) {
         const value = evt.target.value;
         setSearchKey(value);
         
     }
     const search = async () => {
+
+        count.current++;
+        console.log("count: " + count.current);
         console.log("search...");
         //https://en.wikipedia.org/w/api.php?action=opensearch&format=json&limit=20&search=react
         const url = "https://en.wikipedia.org/w/api.php";
@@ -75,6 +43,7 @@ function WikiSearch() {
     return (
         <div>
             <h4>Wiki Search </h4>
+            <p>Count: {count.current}</p>
             <input className="form-control" type="search" value={searchKey} onChange={change} />
              &nbsp;
             <div>
@@ -94,4 +63,4 @@ function WikiSearch() {
 
 }
 
-export default WikiSearch;
+export default WikiSearchExt;
