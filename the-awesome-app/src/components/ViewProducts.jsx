@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import withBorder from './withBorder';
+import {connect} from 'react-redux';
 
-
-function ViewProducts({history}){
+function ViewProducts({history, addToCart}){
 
     const [products, setProducts] = useState([]);
 
@@ -15,6 +15,11 @@ function ViewProducts({history}){
             setProducts(resp.data);
 
     }, [])
+
+    function updateCart(product){
+
+        addToCart({product: product, quantity: 1});
+    }
 
     return (
         <div>
@@ -39,7 +44,9 @@ function ViewProducts({history}){
                                 <td>{item.description}</td>
                                 <td>{item.price}</td>
                                 <td>
-                                    <button className="btn btn-primary">Add to Cart</button>
+                                    <button 
+                                        className="btn btn-primary"
+                                        onClick={() => updateCart(item)}>Add to Cart</button>
                                 </td>
                             </tr>
                         )
@@ -58,4 +65,15 @@ function ViewProducts({history}){
     )
 }
 
-export default withBorder(ViewProducts);
+const mapDispatchToProp = (dispatch) => {
+
+    return {
+        addToCart: (cartItem) => {dispatch({type:"ADD_TO_CART", payload: cartItem})}
+    }
+
+}
+
+export default connect(null, mapDispatchToProp)(withBorder(ViewProducts));
+
+//const hoc = connect();
+//export default hoc(ViewProducts);
