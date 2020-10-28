@@ -1,11 +1,33 @@
 import React, {useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 
+//custom hook
+function useLocalStorage(key, defaultValue){
 
+    const [state, setState] = useState(() => {
+
+        const value = window.localStorage.getItem(key);
+        if(value){
+            return value;
+        }
+        else{
+            return defaultValue;
+        }
+    });
+
+    useEffect(()=> {
+        window.localStorage.setItem(key, state);
+    }, [state]);
+
+    return [state, setState];
+
+}
 function WikiSearchExt() {
 
     //state called "searchKey" and a function to the update the state called "setSearchKey"
-    const [searchKey, setSearchKey] = useState("");
+
+    //const [searchKey, setSearchKey] = useState("");
+    const [searchKey, setSearchKey] = useLocalStorage("my-key", "");
     const [results, setResults] = useState([]);
     let count = useRef(0);
    

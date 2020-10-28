@@ -9,6 +9,8 @@ import AddProduct from './components/AddProduct';
 import WikiSearchExt from './components/WikiSearchExt';
 import UseCallbackDemo from './components/UseCallbackDemo';
 import UseMemoDemo from './components/UseMemoDemo';
+import Shopping from './components/Shopping';
+
 
 function App() {
   return (
@@ -37,7 +39,9 @@ function App() {
                 <Route path="/searchext" component={WikiSearchExt}/>  
                 <Route path="/addProduct" component={AddProduct}/> 
                 <Route path="/callback" component={UseCallbackDemo}/>  
-                <Route path="/memo" component={UseMemoDemo}/>     
+                <Route path="/memo" component={UseMemoDemo}/>  
+                <Route path="/shopping" component={Shopping}/>   
+                    
             </div>
         </div>
       </div>

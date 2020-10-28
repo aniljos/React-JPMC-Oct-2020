@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 
 class ProductForm extends Component{
@@ -105,4 +106,5 @@ class ProductForm extends Component{
     }
 }
 
-export default ProductForm;
+
+export default withRouter(ProductForm);
