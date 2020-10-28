@@ -7,6 +7,8 @@ import ListProducts from './components/ListProducts';
 import WikiSearch from './components/WikiSearch';
 import AddProduct from './components/AddProduct';
 import WikiSearchExt from './components/WikiSearchExt';
+import UseCallbackDemo from './components/UseCallbackDemo';
+import UseMemoDemo from './components/UseMemoDemo';
 
 function App() {
   return (
@@ -33,7 +35,9 @@ function App() {
                 <Route path="/products" component={ListProducts}/>  
                 <Route path="/search" component={WikiSearch}/>  
                 <Route path="/searchext" component={WikiSearchExt}/>  
-                <Route path="/addProduct" component={AddProduct}/>     
+                <Route path="/addProduct" component={AddProduct}/> 
+                <Route path="/callback" component={UseCallbackDemo}/>  
+                <Route path="/memo" component={UseMemoDemo}/>     
             </div>
         </div>
       </div>

@@ -43,7 +43,10 @@ function WikiSearch() {
         console.log("useEffect like the componentDidUpdate(there is a dependencies to searchKey, results)");
     }, [searchKey, results]);
 
-    
+    // useEffect(()=> {
+    //     console.log("useEffect")
+
+    // })
     function change(evt) {
         const value = evt.target.value;
         setSearchKey(value);
