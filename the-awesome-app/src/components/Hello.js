@@ -17,6 +17,9 @@ function Hello(props){
             <div>
                 {jsx}
             </div>
+            <p>
+                {props.children}
+            </p>
             
         </div>
     )

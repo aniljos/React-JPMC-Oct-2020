@@ -10,7 +10,7 @@ function Login(props){
     const [password, setPassword] = useState("");
     const nameRef= useRef(null);
     const pwdRef = useRef(null);
-    
+  
 
     async function login(){
         console.log(nameRef.current.value, pwdRef.current.value, password);
@@ -20,7 +20,10 @@ function Login(props){
 
             const resp = await axios.post(url, {name: nameRef.current.value, password: password});
             console.log("Success", resp);
-            props.setAuthenticated({});
+            props.setAuthenticated({
+                accessToken: resp.data.accessToken,
+                refreshToken: resp.data.refreshToken
+            });
             props.history.push("/shopping");
 
         } catch (error) {

@@ -3,7 +3,8 @@
 const initState = {
     
     isAuthenticated: false,
-    token : null
+    accessToken : null,
+    refreshToken: null
 }
 export const AuthReducer = (currentState=initState, action) => {
 
@@ -11,14 +12,18 @@ export const AuthReducer = (currentState=initState, action) => {
 
         return {
             ...currentState,
-            isAuthenticated: true
+            isAuthenticated: true,
+            accessToken: action.data.accessToken,
+            refreshToken: action.data.refreshToken
         }
     }
     if(action.type === "LOGOUT"){
 
         return {
             ...currentState,
-            isAuthenticated: false
+            isAuthenticated: false,
+            accessToken: null,
+            refreshToken: null
         }
     }
     return currentState;

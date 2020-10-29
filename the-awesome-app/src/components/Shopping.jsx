@@ -6,6 +6,7 @@ import ViewProducts from './ViewProducts';
 
 function Shopping({history, match, location}) {
 
+  
     console.log(match);
     const name = "Anil"; const loc = "Mumbai";
 

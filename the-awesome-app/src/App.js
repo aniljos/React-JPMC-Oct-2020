@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import Hello from './components/Hello';
 import Counter from './components/Counter';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -10,12 +11,14 @@ import AddProduct from './components/AddProduct';
 import WikiSearchExt from './components/WikiSearchExt';
 import UseCallbackDemo from './components/UseCallbackDemo';
 import UseMemoDemo from './components/UseMemoDemo';
-import Shopping from './components/Shopping';
 import Login from './components/Login';
 import './App.css';
 import ProtectedRoute from './components/ProtectedRoute';
 
 
+//import Shopping from './components/Shopping';
+
+const Shopping = React.lazy(() => import('./components/Shopping'));
 
 function App() {
   return (
@@ -37,7 +40,7 @@ function App() {
                 {/* <Route path="/" exact component={Hello}/>
                 <Route path="/counter" component={Counter}/> */}
 
-                <Route path="/" exact render={() => <Hello message="This is a simple functional component"/>}/>
+                <Route path="/" exact render={() => <Hello message="This is a simple functional component">This is the children</Hello>}/>
                 <Route path="/counter" render={() => <Counter message="This is a simple class component"/>}/> 
                 <Route path="/products" component={ListProducts}/>  
                 <Route path="/search" component={WikiSearch}/>  
@@ -46,7 +49,10 @@ function App() {
                 <Route path="/callback" component={UseCallbackDemo}/>  
                 <Route path="/memo" component={UseMemoDemo}/>  
                 {/* <Route path="/shopping" component={Shopping}/>  */}
-                <ProtectedRoute path="/shopping" component={Shopping}/>
+                <Suspense fallback={<div>Loading, please wait...</div>}>
+                  <ProtectedRoute path="/shopping" component={Shopping}/>
+                </Suspense>
+                
            
                 <Route path="/login" component={Login}/>   
                     
