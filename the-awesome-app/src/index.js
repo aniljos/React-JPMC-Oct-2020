@@ -6,12 +6,16 @@ import reportWebVitals from './reportWebVitals';
 
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import { AppTheme } from './context/AppTheme';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <AppTheme.Provider value={{type: 'light'}}>
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    </AppTheme.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

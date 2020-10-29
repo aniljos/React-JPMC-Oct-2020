@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AppTheme } from '../context/AppTheme';
 
 
 
@@ -71,7 +72,7 @@ class Counter extends Component{
         //return the View(JSX)
         return (
             <div>
-                <h4>Counter: {this.state.count}</h4>
+                <h4 className={`${this.context.type}-text`}>Counter: {this.state.count}</h4>
                 <p>{this.props.message}</p>
                 <div>
                     <button onClick={this.increment}>Inc</button> &nbsp;
@@ -91,6 +92,8 @@ class Counter extends Component{
         )
     }
 }
+Counter.contextType = AppTheme;
+
 export default Counter;
 
 

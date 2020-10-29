@@ -7,9 +7,15 @@
       "price": 90000
     },
     {
+      "id": 2,
+      "name": "LG OLED TV",
+      "description": "4K Ultra HD Smart OLED TV ",
+      "price": 6000000
+    },
+    {
       "id": 3,
       "name": "Lenovo ThinkPad E470",
-      "description": "Intel Core i5 10th Gen 14-inch Full HD IPS Thin and Light Laptop assasdasd",
+      "description": "Intel Core i5 10th Gen 14-inch Full HD IPS Thin and Light Laptop",
       "price": 30000
     },
     {

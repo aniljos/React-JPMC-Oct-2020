@@ -1,3 +1,14 @@
+.light-text{
+  color: lightblue;
+}
+
+.dark-text{
+  color: darkblue;
+}
+
+
+
+
 .App {
   text-align: center;
 }
