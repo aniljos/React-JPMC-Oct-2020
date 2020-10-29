@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-
-
 class AppErrorBoundary extends Component {
 
     state = {
         hasError: false
     }
-
     componentDidCatch(error) {
 
         if (error) {
@@ -14,9 +11,7 @@ class AppErrorBoundary extends Component {
                 hasError: true
             });
         }
-
     }
-
     render() {
         if (this.state.hasError) {
             return (
@@ -27,12 +22,7 @@ class AppErrorBoundary extends Component {
         }
         else {
             return this.props.children;
-
-
         }
     }
-
 }
-
-
 export default AppErrorBoundary;
