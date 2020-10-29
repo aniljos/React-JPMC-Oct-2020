@@ -17,12 +17,6 @@
       "name": "Lenovo ThinkPad E470",
       "description": "Intel Core i5 10th Gen 14-inch Full HD IPS Thin and Light Laptop",
       "price": 30000
-    },
-    {
-      "id": 5,
-      "name": "Samsung Galaxy Watch Active 2",
-      "description": "With Super AMOLED Display",
-      "price": 20300
     }
   ]
 }

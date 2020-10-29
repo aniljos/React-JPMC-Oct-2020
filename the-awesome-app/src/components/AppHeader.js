@@ -35,6 +35,9 @@ function AppHeader() {
                     <li className="nav-item">
                         <Link className="nav-link active" to="/login">Login</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link active" to="/category">Category</Link>
+                    </li>
                 </ul>
             </nav>
         </div>

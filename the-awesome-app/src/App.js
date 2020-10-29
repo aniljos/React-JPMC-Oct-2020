@@ -14,6 +14,7 @@ import UseMemoDemo from './components/UseMemoDemo';
 import Login from './components/Login';
 import './App.css';
 import ProtectedRoute from './components/ProtectedRoute';
+import Category from './components/Category';
 
 
 //import Shopping from './components/Shopping';
@@ -23,7 +24,7 @@ const Shopping = React.lazy(() => import('./components/Shopping'));
 function App() {
   return (
 
-    <Router>
+    <Router basename="/react/">
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
@@ -52,9 +53,8 @@ function App() {
                 <Suspense fallback={<div>Loading, please wait...</div>}>
                   <ProtectedRoute path="/shopping" component={Shopping}/>
                 </Suspense>
-                
-           
-                <Route path="/login" component={Login}/>   
+                <Route path="/login" component={Login}/>  
+                <Route path="/category" component={Category}/>  
                     
             </div>
         </div>
